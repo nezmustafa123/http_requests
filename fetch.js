@@ -13,5 +13,19 @@ function getUsers(e) {
     })
     .then(function (data) {
       console.log(data);
+
+      let output = "";
+      data.forEach(function (data) {
+        output += `
+          <hr>
+          <ul>
+          <li>ID: ${data.id}</li>
+          <li>Name: ${data.name}</li>
+          <li>Age: ${data.age}</li>
+          <li>Email: ${data.email}</li>
+          </ul>
+          `;
+      });
+      document.getElementById("users").innerHTML = output;
     });
 }
