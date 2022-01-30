@@ -21,6 +21,19 @@ function getUsers(e) {
       const users = JSON.parse(this.responseText);
 
       console.log(users);
+      let output = "";
+      users.forEach(function (user) {
+        output += `
+          <hr>
+          <ul>
+          <li>ID: ${user.id}</li>
+          <li>Name: ${user.name}</li>
+          <li>Age: ${user.age}</li>
+          <li>Email: ${user.email}</li>
+          </ul>
+          `;
+      });
+      document.getElementById("users").innerHTML = output;
     }
   };
   http.send();
